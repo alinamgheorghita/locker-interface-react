@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+  background-color: lightcyan;
+  height: 100vh;
+  width: 100vw;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  .top-container {
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .left-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-number {
+    width: 60px;
+    margin-left: -40px;
+    margin-top: 35px;
+    background-color: rgb(230, 231, 231);
+
+    .MuiInputBase-root {
+      height: 35px;
+    }
+  }
+
+  .slot-number {
+    width: 400px;
+    font-size: 30px;
+    margin-top: 30px;
+    color: rgb(0, 38, 255);
+  }
+
+  button {
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .slot-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .status-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .paddle-state {
+    font-size: 30px;
+    margin-left: 68px;
+    margin-top: 20px;
+    color: rgb(0, 38, 255);
+  }
+
+  .status-present {
+    margin-left: 10px;
+    font-size: 30px;
+    color: green;
+    margin-top: 20px;
+  }
+
+  .status-absent {
+    margin-left: 10px;
+    font-size: 30px;
+    color: red;
+    margin-top: 20px;
+  }
+
+  .status-opened {
+    margin-left: 10px;
+    font-size: 30px;
+    color: green;
+    margin-top: 20px;
+  }
+
+  .status-closed {
+    margin-left: 10px;
+    font-size: 30px;
+    color: red;
+    margin-top: 20px;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 70px;
+  }
+
+  .door-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .door-state {
+    font-size: 30px;
+    margin-left: 68px;
+    margin-top: 20px;
+    color: rgb(0, 38, 255);
+  }
+  button {
+    width: 170px;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .bottom-buttons-container {
+    margin-left: 185px;
+  }
+}
