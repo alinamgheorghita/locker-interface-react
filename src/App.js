@@ -4,9 +4,11 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import Axios from "axios";
 
+const baseUrl = "http://192.168.0.158:5000";
+
 const App = () => {
   const [slotNumber, setSlotNumber] = useState("");
-  const [paddleboardState, setPaddleboardState] = useState("ABSENT");
+
   const [doorState, setDoorState] = useState("OPENED");
   const [sensorState1, setSensorState1] = useState("PRESENT");
   const [sensorState2, setSensorState2] = useState("PRESENT");
@@ -15,51 +17,57 @@ const App = () => {
   const handleClickPowerUp = () => {
     console.log("Functia power up", slotNumber);
 
-    Axios.post("http://127.0.0.1:5000/power-up");
+    Axios.post(`${baseUrl}/power-up`);
   };
 
   const handleClickLightsOn = () => {
     console.log("Functia Lights On", slotNumber);
 
-    Axios.post(`http://127.0.0.1:5000/open-door-lights/${slotNumber}`);
+    Axios.post(`${baseUrl}/open-door-lights/${slotNumber}`);
   };
 
   const handleClickLightsOff = () => {
     console.log("Functia Lights Off", slotNumber);
 
-    Axios.post(`http://127.0.0.1:5000/close-door-lights/${slotNumber}`);
+    Axios.post(`${baseUrl}/close-door-lights/${slotNumber}`);
   };
 
   const handleClickOpenDoor = () => {
     console.log("Functia Open Door", slotNumber);
 
-    Axios.post(`http://127.0.0.1:5000/open-door-test/${slotNumber}`);
+    Axios.post(`${baseUrl}/open-door-test/${slotNumber}`);
   };
 
   const handleClickReadState = () => {
     console.log("Functia Read State", slotNumber);
 
-    Axios.post(
-      `http://127.0.0.1:5000/read-paddle-board-state/${slotNumber}`
-    ).then((response) => {
-      setPaddleboardState(response.data);
-    });
+    Axios.post(`${baseUrl}/read-paddle-board-state/${slotNumber}`).then(
+      (response) => {
+        setSensorState1(response.data.sensor1status);
+        setSensorState2(response.data.sensor2status);
+        setSensorState3(response.data.sensor3status);
+      }
+    );
   };
 
   const handleClickStartRental = () => {
     console.log("Functia Start Rental", slotNumber);
 
-    Axios.post(`http://127.0.0.1:5000/start-rental/${slotNumber}`);
+    Axios.post(`${baseUrl}/start-rental/${slotNumber}`);
   };
 
   const handleClickEndRental = () => {
     console.log("Functia End Rental", slotNumber);
 
-    Axios.post(`http://127.0.0.1:5000/end-rental/${slotNumber}`);
+    Axios.post(`${baseUrl}/end-rental/${slotNumber}`);
   };
 
   const handleClickCheckDoor = () => {
     console.log("Functia Check Door", slotNumber);
+
+    Axios.post(`${baseUrl}/check-door-test/${slotNumber}`).then((response) => {
+      setDoorState(response.data);
+    });
   };
 
   return (
