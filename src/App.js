@@ -164,7 +164,7 @@ const App = () => {
               START RENTAL
             </Button>
             <Button variant="contained" onClick={handleClickEndRental}>
-              END RENTAL
+              END RENTALL
             </Button>
           </div>
         </div>
